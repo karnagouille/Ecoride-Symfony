@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ecoridee/css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script src="/ecoridee/JavaScript/main.js" defer></script>
+    <title>Trajet en cours</title>
+</head>
+<body>
+    <header>
+        <nav class="container titleshadow">
+            <div>
+                <a href="/ecoridee/HTML/index.html" class="decoration navlink">Accueil</a>
+            </div>
+            <div>
+                <a href="/ecoridee/HTML/covoiturage.html" class="decoration navlink">covoiturage</a>
+            </div>
+            <div>
+                <a href="" class="decoration navlink ">Contact</a>
+            </div>
+            <div>
+                <a href="/ecoridee/HTML/utilisateur.html" class="decoration navlink">Mon compte</a>
+            </div>
+            <div>
+                <a href="/ecoridee/HTML/connexion.html" class="decoration navlink">Connexion</a>
+            </div>
+            <div>
+                <a href="/ecoridee/HTML/connexion.html" class="decoration navlink">Deconnexion</a>
+            </div>
+        </nav>
+    </header>
+
+
+<div class="userprofil">
+    <div class="mainuser">
+        <div><p><strong>Pseudo</strong></p></div>
+        <div><img src="/ecoridee/image/voiturier.jpg" alt="" class="userimg"></div>
+        <div><p><strong> Kirrua Zoldik</strong></p></div>
+        <div><p><u>kukurumontain@gmail.com</u></p></div>
+
+        <div>
+            <div class="driverpassengers">
+                <div>
+                    <button class="driverpassenger navlink2" id="btn">Chauffeur</button>
+                </div>
+                <div>
+                    <button class="driverpassenger navlink2" id="btnpassager" >Passager</button>
+                </div>
+            </div>
+            
+            <form action="" class="userform hidden" id="filter"  >
+                <div>
+                    <p style="font-size: 30px;"><strong><u>Profile Voiture</u></strong></p>
+                </div>                
+                <div class="accountext">
+                    <div>
+                        <label for="">Numéro de la plaque :</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="AA-123-AA" class="inputaccount">
+                    </div>
+                </div>
+                <div class="accountext">
+                    <div>
+                        <label for=""> première imatriculation :</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="15/11/1992" class="inputaccount">
+                    </div>
+                </div>
+                <div class="accountext">
+                    <div>
+                        <label for="">Modèle,marque,couleur : :</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Batmobile,Renault,Noire" class="inputaccount">
+                    </div>
+                </div>
+                <div class="accountext">
+                    <div>
+                        <label for="">Places disponibles :</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="4" class="inputaccount"> 
+                    </div>
+                </div>
+                <div class="accountext">
+                    <div>
+                        <label for="">Préférences :</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Adore le noire" class="inputaccount preference">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <div class="reservedstartstop">
+        <div href="/ecoridee/HTML/renseignement.html" class="reserved">        
+            <div class="driver1">
+                <div class="profilhistorical">
+                    <div class="destination">
+                        <div>
+                            <div class="time">
+                                
+                                <p><img src="/ecoridee/tools/voiture-electrique.png" alt="eleccar" class="eleccar">
+                                    <strong> Durée : 1H15 🕒</strong>
+                                </p>
+                                    
+                            </div>
+                            <div class="startfinish">
+                            
+                                <div>
+                                    <p><strong> 🏁 Départ 🏁: 10H Manosque gare routière </strong></p>
+                                </div>
+                            </div> 
+                            
+                            <div >------------------------------------------------------------</div>
+                            <div class="startfinish">
+                                <div>
+                                    <p><strong> 🎯 Arrivée 🎯: 11H15 Marseille gare saint charle </strong></p>
+                                </div>
+                            </div> 
+                        </div>                               
+                    </div>
+
+                    <div class="priceplacehistorical">
+                        <div>
+                            <p><strong>3 Passagers</strong></p>
+                        </div>
+                    </div>               
+                </div>
+            </div>  
+        </div> 
+            <div class="startstop">
+                <div>
+                    <button class="start " >Démarrer</button>
+                </div>
+                <div>
+                    <button class="stop " id="btnpassager" >Arrêter</button>
+                </div>
+                <div>
+                    <button class="finish " id="btnpassager" >Arrivée</button>
+                </div>
+            </div>
+</div>

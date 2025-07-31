@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Covoiturage{% endblock %}
+
+{% block body %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+    <header>
+        <nav class="container titleshadow">
+            <div><a href="{{ path('index') }}" class="decoration navlink">Accueil</a></div>
+            <div><a href="{{ path('covoiturage') }}" class="decoration navlink">Covoiturage</a></div>
+            <div><a href="#" class="decoration navlink">Contact</a></div>
+            <div><a href="{{ path('moncompte') }}" class="decoration navlink">Mon compte</a></div>
+            <div><a href="{{ path('connexion') }}" class="decoration navlink">Connexion</a></div>
+            <div><a href="/ecoridee/HTML/connexion.html" class="decoration navlink">Déconnexion</a></div>
+        </nav>
+    </header>
+
+    <div class="searchcar">
+<div class="searchcar">
+    {{ form_start(form) }}
+    <div>
+        {{ form_widget(form.start) }}
+        {{ form_widget(form.finish) }}
+
+        {{ form_widget(form.passenger) }}
+
+        {{ form_widget(form.date) }}
+        {{ form_widget(form.hour) }}
+
+        <button class="find" type="submit">Rechercher</button>
+    </div>
+
+    <div class="order1">
+        <button class="sort" id="btns" type="button">TRIEZ PAR 🡇</button>
+        <fieldset class="filtered hidden" id="filters">
+            <div class="title">
+                <label class="souligne"><strong>PRIX</strong></label>
+                {{ form_widget(form.price) }}
+            </div>
+
+            <div class="title">
+                <label class="souligne"><strong>TEMPS</strong></label>
+                {{ form_widget(form.time) }}
+            </div>
+
+            <div class="title">
+                <label class="souligne"><strong>VOITURE ECO</strong></label>
+                {{ form_widget(form.electric) }}
+            </div>
+
+            <div class="title">
+                <label class="souligne"><strong>NOTE</strong></label>
+                {{ form_widget(form.note) }}
+            </div>
+        </fieldset>
+    </div>
+    {{ form_end(form) }}
+</div>
+
+
+    {# Résultats #}
+    {% if trajets is not empty %}
+        {% for row in trajets %}
+            <div class="backdriver">
+                <a href="/ecoridee/HTML/renseignement.html" class="reserved">
+                    <div class="driver1">
+                        <div class="profil">
+                            <p>{{ row.pseudo }}</p>
+                            <img src="/ecoridee/image/voiturier.jpg" alt="carimg" class="userimg">
+                            <p><strong>5/5</strong></p>
+                        </div>
+                        <div class="destination">
+                            <strong><u>{{ row.date|date('d/m/Y') }}</u></strong>
+                            <div class="time">
+                                <p>
+                                    <img src="/ecoridee/tools/voiture-electrique.png" alt="eleccar" class="eleccar">
+                                    <strong>Durée : {{ row.time }}</strong>
+                                </p>
+                            </div>
+                            <div class="startfinish">
+                                <p><strong>Départ : {{ row.start }}</strong></p>
+                            </div>
+                            <hr>
+                            <div class="startfinish">
+                                <p><strong>Arrivée : {{ row.finish }}</strong></p>
+                            </div>
+                        </div>
+                        <div class="priceplace">
+                            <p><strong>{{ row.passenger }} place(s)</strong></p>
+                            <p><strong>💰 {{ row.price }} €</strong></p>
+                        </div>
+                    </div>
+                </a>
+                <button class="reservedbutton"><strong>Participer</strong></button>
+            </div>
+            </body>
+        {% endfor %}        
+    {% endif %}
+{% endblock %}

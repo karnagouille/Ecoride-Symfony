@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script src="Script/main.js"defer></script>
+    <title>Ecoride</title>
+</head>
+<body>
+    <header>
+        <nav class="container titleshadow">
+            <div>
+                <a href="{{ path('index') }}" class="decoration navlink">Accueil</a>
+            </div>
+            <div>
+                <a href="{{ path('covoiturage') }}" class="decoration navlink">covoiturage</a>
+            </div>
+            <div>
+                <a href="" class="decoration navlink ">Contact</a>
+            </div>
+            <div>
+                <a href="{{ path('moncompte') }}" class="decoration navlink">Mon compte</a>
+            </div>
+            <div>
+                <a href="{{ path('connexion') }}" class="decoration navlink">Connexion</a>
+            </div>
+            <div>
+                <a href="/ecoridee/HTML/connexion.html" class="decoration navlink">Deconnexion</a>
+            </div>
+        </nav>
+    </header>
+<main>
+<div class="search">
+    <div class="tittle">
+        <h1>EcoRide</h1>
+        <h2>Le Covoiturage 100% voiture</h2>
+    </div>
+
+    <form class="form">
+        <input class="input" type="search" placeholder="Départ">
+        <input class="input" type="search" placeholder="Destination">
+
+        <select  class="input"> 
+            <option value="select">1 passager</option>
+            <option >2 passagers</option>
+            <option >3 passagers</option>
+            <option class="input2">4 passagers</option>
+        </select>    
+            <input  class="inputdate" type="date">
+            <button class="find" type="submit">Rechercher</button>
+    </form>      
+</div>
+
+<section class="advantages">
+    <h2>Pourquoi choisir le covoiturage ?</h2>
+        <div class="advantage-list">
+
+            <div class="advantage">
+                <h3>🌱 Écologique</h3>
+                <p>Réduisez les émissions de CO₂ en partageant vos trajets.</p>
+            </div>
+
+            <div class="advantage">
+                <h3>💰 Économique</h3>
+                <p>Partagez les frais de carburant et économisez à chaque voyage.</p>
+            </div>
+
+            <div class="advantage">
+                <h3>🤝 Convivial</h3>
+                <p>Faites de nouvelles rencontres et voyagez dans une bonne ambiance.</p>
+            </div>
+
+        </div>
+</section>
+
+<div class="carpool">
+
+    <div class="presentation1">
+        <img class="carpoolimg" src="/ecoridee/image/presentation1.jpg" alt="covoiturage">
+    </div>
+
+    <div class="presentation2">
+        <p>La startup "EcoRide" fraichement crée en France, a pour objectif de réduire l'impact environnemental des déplacements en encourageant le covoiturage.L’ambition "EcoRide" est de devenir la principale plateforme de covoiturage pour les voyageurs soucieux de l'environnement et ceux qui recherchent une solution économique pour leurs déplacements.</p>
+    </div>
+
+    <div class="presentation3">
+        <img class="carpoolimg" src="/ecoridee/image/presentation2.jpg" alt="covoiturage">
+    </div>
+    
+</div>
+</main>
+
+<footer>
+    <div class="footer">
+        <p><u><strong>Ecoride@gmail.com</strong></u></p>
+        <a href="">Mention légales</a>
+    </div>
+</footer>
+
+
+</body>
+</html>
