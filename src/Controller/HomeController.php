@@ -15,22 +15,6 @@ class HomeController extends AbstractController
         return $this->render('index.html.twig');
     }
 
-    #[Route('/covoit', name: 'covoiturage')]
-    public function covoit(Request $request): Response
-    {
-        $form = $this->createForm(CovoitType::class);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-        
-        }
-
-        return $this->render('covoiturage.html.twig', [
-            'form' => $form->createView(),
-            'trajets' => [],
-        ]);
-    }
 
     #[Route('/connexion', name: 'connexion')]
     public function connexion(): Response
@@ -38,9 +22,43 @@ class HomeController extends AbstractController
         return $this->render('connexion.html.twig');
     }
 
-    #[Route('/moncompte', name: 'moncompte')]
-    public function moncompte(): Response
+    #[Route('/deconnexion', name: 'deconnexion')]
+    public function deconnexion(): Response
     {
-        return $this->render('moncompte.html.twig');
+        return $this->render('deconnexion.html.twig');
     }
+
+
+    #[Route('/creationdecompte',name: 'creationdecompte')]
+    public function creationdecompte(): Response 
+    {
+        return $this->render('creationdecompte.html.twig');
+    }
+
+    #[Route('/reinitialisermdp',name: 'reinitialisermdp')]
+public function reinitialisermdp(): Response
+{
+    return $this->render('reinitialisermdp.html.twig');
 }
+
+    #[Route('/creationtrajet',name: 'creationtrajet')]
+    public function creationtrajet(): Response 
+    {
+        return $this->render('creationtrajet.html.twig');
+    }
+
+#[Route('/trajetencour' , name : 'trajetencour')]
+public function trajetencour(): Response 
+{
+    return $this->render('trajetencour.html.twig');
+}
+
+#[Route('/moncompte' , name : 'moncompte')]
+public function moncompte(): Response 
+{
+    return $this->render('moncompte.html.twig');
+}
+
+
+}
+

@@ -8,7 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 class CovoitType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -69,6 +70,7 @@ class CovoitType extends AbstractType
                     '10–11 h' => '10-11',
                     '11–12 h' => '11-12',
                 ],
+                
                 'attr' => ['class' => 'input']
             ])
             ->add('electric', ChoiceType::class, [

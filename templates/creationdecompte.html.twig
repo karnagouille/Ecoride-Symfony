@@ -21,44 +21,43 @@
             <div><a href="{{ path('deconnexion') }}" class="decoration navlink">Deconnexion</a></div>
         </nav>
     </header>
-
-
-<form class="log">
-    <div>
-        <div><img src="/ecoridee/image/connexion.png" alt="" class="imglog"></div>
-    </div>
-    <div>
-        <p class="infolog titleshadow">IDENTIFIANT</p>
+    <div class="titleaccount titleshadow">
+        <p><strong>CREATION DE COMPTE</strong></p>
     </div>
     
-    <div class="username">
-        <div>
-            <label for="">Nom d'utilisateur</label>
-            <input type="text" placeholder="Entrez votre nom d'utilisateur"  class="inputlog" required>
-        </div>
-    </div>
-    <div>
-        <div >
-            <label for="">Mot de passe</label>
-            <input type="text" placeholder="Entrez votre mot de passe"  class="inputlog" required>
-        </div>
-        <div >
-            <div class="checkbox">
-                <div><input type="checkbox">Se souvenir de moi</div>
+
+
+{{ form_start(form) }}
+
+<div action="" class="accountcreation">
+            <div class="accountext">
+                <div><label for="" name = "pseudo">Pseudo :</label></div>
+                <div>{{ form_row(form.pseudo) }}</div>
             </div>
-        <div >
-            <button class="connexion">CONNEXION</button>
+
+            <div class="accountext">
+                <div><label for="" name = "name">Nom :</label></div>
+                <div>{{ form_row(form.name) }}</div>
+            </div>
+
+            <div class="accountext">
+                <div><label for="" name = "prenom">Prénom :</label></div>
+                <div>{{ form_row(form.surname) }}</div>
+            </div>
+
+            <div class="accountext">
+                <div><label for="" name = "mail">Adresse-mail :</label></div>
+                <div>{{ form_row(form.mail) }}</div>
+            </div>
+            
+            <div class="accountext">
+                <div><label for="" name = "plainpassword">Mot-de-passe :</label></div>
+                <div>{{ form_row(form.plainpassword) }}</div>
+            </div>
         </div>
-    </form>
-    
 
-<div class="account">
-    <div>
-        <a href="{{ path('creationdecompte') }}" class="accounts">Créer un compte</a>
-    </div>
-    <div>
-        <a href="{{path('reinitialisermdp')}}" class="accounts">Mot de passe oublier ?</a>
-    </div>
+<div class="buttonaccounts">
+    <button type="submit" class="buttonaccount">Créer un compte</button>
 </div>
-
+{{ form_end(form) }}
 {% endblock %}

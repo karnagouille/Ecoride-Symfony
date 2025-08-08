@@ -1,36 +1,24 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html.twig' %}
+
+{% block title %}Covoiturage{% endblock %}
+
+{% block body %}
+{% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <script src="Script/main.js"defer></script>
-    <title>Ecoride</title>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ asset('script/main.js') }}" defer></script>
+{% endblock %}
     <header>
         <nav class="container titleshadow">
-            <div>
-                <a href="{{ path('index') }}" class="decoration navlink">Accueil</a>
-            </div>
-            <div>
-                <a href="{{ path('covoiturage') }}" class="decoration navlink">covoiturage</a>
-            </div>
-            <div>
-                <a href="" class="decoration navlink ">Contact</a>
-            </div>
-            <div>
-                <a href="{{ path('moncompte') }}" class="decoration navlink">Mon compte</a>
-            </div>
-            <div>
-                <a href="{{ path('connexion') }}" class="decoration navlink">Connexion</a>
-            </div>
-            <div>
-                <a href="/ecoridee/HTML/connexion.html" class="decoration navlink">Deconnexion</a>
-            </div>
+            <div><a href="{{ path('index') }}" class="decoration navlink">Accueil</a></div>
+            <div><a href="{{ path('covoiturage') }}" class="decoration navlink">Covoiturage</a></div>
+            <div><a href="#" class="decoration navlink">Contact</a></div>
+            <div><a href="{{ path('moncompte') }}" class="decoration navlink">Mon compte</a></div>
+            <div><a href="{{ path('connexion') }}" class="decoration navlink">Connexion</a></div>
+            <div><a href="{{ path('deconnexion') }}" class="decoration navlink">Deconnexion</a></div>
         </nav>
     </header>
 <main>
@@ -60,17 +48,17 @@
         <div class="advantage-list">
 
             <div class="advantage">
-                <h3>🌱 Écologique</h3>
+                <h3>Écologique</h3>
                 <p>Réduisez les émissions de CO₂ en partageant vos trajets.</p>
             </div>
 
             <div class="advantage">
-                <h3>💰 Économique</h3>
+                <h3>Économique</h3>
                 <p>Partagez les frais de carburant et économisez à chaque voyage.</p>
             </div>
 
             <div class="advantage">
-                <h3>🤝 Convivial</h3>
+                <h3>Convivial</h3>
                 <p>Faites de nouvelles rencontres et voyagez dans une bonne ambiance.</p>
             </div>
 
@@ -80,7 +68,7 @@
 <div class="carpool">
 
     <div class="presentation1">
-        <img class="carpoolimg" src="/ecoridee/image/presentation1.jpg" alt="covoiturage">
+        <img class="carpoolimg" src="/image/presentation1.jpg" alt="covoiturage">
     </div>
 
     <div class="presentation2">
@@ -88,7 +76,7 @@
     </div>
 
     <div class="presentation3">
-        <img class="carpoolimg" src="/ecoridee/image/presentation2.jpg" alt="covoiturage">
+        <img class="carpoolimg" src="/image/presentation2.jpg" alt="covoiturage">
     </div>
     
 </div>
@@ -102,5 +90,5 @@
 </footer>
 
 
-</body>
-</html>
+
+{% endblock %}
