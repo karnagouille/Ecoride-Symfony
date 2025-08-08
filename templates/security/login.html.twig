@@ -3,32 +3,61 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ asset('script/main.js') }}" defer></script>
+{% endblock %}
+    <header>
+        <nav class="container titleshadow">
+            <div><a href="{{ path('index') }}" class="decoration navlink">Accueil</a></div>
+            <div><a href="{{ path('covoiturage') }}" class="decoration navlink">Covoiturage</a></div>
+            <div><a href="#" class="decoration navlink">Contact</a></div>
+            <div><a href="{{ path('moncompte') }}" class="decoration navlink">Mon compte</a></div>
+            <div><a href="{{ path('connexion') }}" class="decoration navlink">Connexion</a></div>
+            <div><a href="{{ path('deconnexion') }}" class="decoration navlink">Deconnexion</a></div>
+        </nav>
+    </header>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputMail">Mail</label>
-    <input type="text" value="{{ last_username }}" name="mail" id="inputMail" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
-
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
+<form class="log">
+    <div>
+        <div><img src="/ecoridee/image/connexion.png" alt="" class="imglog"></div>
     </div>
+    <div>
+        <p class="infolog titleshadow">IDENTIFIANT</p>
+    </div>
+    
+    <div class="username">
+        <div>
+            <label for="">Nom d'utilisateur</label>
+            <input type="text" placeholder="Entrez votre nom d'utilisateur"  class="inputlog" required>
+        </div>
+    </div>
+    <div>
+        <div >
+            <label for="">Mot de passe</label>
+            <input type="text" placeholder="Entrez votre mot de passe"  class="inputlog" required>
+        </div>
+        <div >
+            <div class="checkbox">
+                <div><input type="checkbox">Se souvenir de moi</div>
+            </div>
+        <div >
+            <button class="connexion">CONNEXION</button>
+        </div>
+    </form>
+    
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+<div class="account">
+    <div>
+        <a href="{{ path('creationdecompte') }}" class="accounts">Créer un compte</a>
+    </div>
+    <div>
+        <a href="{{path('reinitialisermdp')}}" class="accounts">Mot de passe oublier ?</a>
+    </div>
+</div>
 {% endblock %}

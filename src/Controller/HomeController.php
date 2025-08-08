@@ -29,23 +29,11 @@ class HomeController extends AbstractController
     }
 
 
-    #[Route('/creationdecompte',name: 'creationdecompte')]
-    public function creationdecompte(): Response 
-    {
-        return $this->render('creationdecompte.html.twig');
-    }
-
     #[Route('/reinitialisermdp',name: 'reinitialisermdp')]
 public function reinitialisermdp(): Response
 {
     return $this->render('reinitialisermdp.html.twig');
 }
-
-    #[Route('/creationtrajet',name: 'creationtrajet')]
-    public function creationtrajet(): Response 
-    {
-        return $this->render('creationtrajet.html.twig');
-    }
 
 #[Route('/trajetencour' , name : 'trajetencour')]
 public function trajetencour(): Response 

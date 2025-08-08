@@ -33,18 +33,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\column(length : 255, unique : true)]
     private ?string $pseudo = null; 
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Vous devez saisir un mot de passe")]
-    #[Assert\Length(
-        min: 6,
-        minMessage: "Votre mot de passe doit posséder au moins {{ limit }} caractères"
-    )]
     private ?string $password = null;
 
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
 
+    #[ORM\OneToMany(mappedBy: "owner", targetEntity: Car::class)]
+    private Collection $cars;
+
+
+#[Assert\NotBlank(message: "Vous devez saisir un mot de passe")]
 #[Assert\Length(
     min: 6,
     minMessage: "Votre mot de passe doit faire au moins {{ limit }} caractères"
@@ -61,19 +60,6 @@ public function setPlainPassword(?string $plainPassword): self
     $this->plainPassword = $plainPassword;
     return $this;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public function getId(): ?int
@@ -157,10 +143,8 @@ public function setPlainPassword(?string $plainPassword): self
 
     public function eraseCredentials(): void
     {
-        // Tu peux nettoyer ici des données sensibles si tu en ajoutes plus tard
+
     }
-    #[ORM\OneToMany(mappedBy: "owner", targetEntity: Car::class)]
-private Collection $cars;
 
 public function __construct()
 {

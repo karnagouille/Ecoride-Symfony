@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class CreationdecompteType extends AbstractType
 {
@@ -15,32 +15,36 @@ class CreationdecompteType extends AbstractType
     {
         $builder
             ->add('pseudo', TextType::class,[
-                'label' =>'Pseudo',
+                'label' =>false,
                 'attr' =>['class' => 'accountext'],
                 'required'=> true,
             ])
             ->add('name', TextType::class,[
-                'label' =>'Nom',
+                'label' =>false,
                 'attr' =>['class' => 'accountext'],
                 'required'=> true,
             ])
             ->add('surname', TextType::class,[
-                'label' =>'Prenom',
+                'label' =>false,
                 'attr' =>['class' => 'accountext'],
                 'required'=> true,
             ])
             ->add('mail', TextType::class,[
-                'label' =>'Adresse-mail',
+                'label' =>false,
                 'attr' =>['class' => 'accountext'],
                 'required'=> true,
             ])
-            ->add('plainpassword', PasswordType::class,[
-                'label' =>'Mot de passe',
-                'attr' =>['class' => 'accountext'],
-                'required'=> true,
-            ])
-
-        ;
+            ->add('plainPassword', PasswordType::class, [
+                'label' => false,
+                'mapped' => false,
+                'attr' => ['class' => 'accountext'],
+                'required' => true,
+                'constraints' => [
+                new NotBlank([
+            'message' => 'Vous devez saisir un mot de passe',
+                ]),
+            ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

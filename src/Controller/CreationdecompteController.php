@@ -20,6 +20,7 @@ final class CreationdecompteController extends AbstractController
         UserPasswordHasherInterface $passwordHasher
     ): Response
     {
+
         // 1. Création d'un nouvel utilisateur vide
         $user = new User();
 
@@ -29,6 +30,13 @@ final class CreationdecompteController extends AbstractController
         // 3. Traitement de la requête
         $form->handleRequest($request);
 
+        dump($request->getMethod());
+dump($request->request->all());
+
+        if ($form->isSubmitted()) {
+    dd($form->isValid(), $form->getErrors(true));
+}
+
         // 4. Si formulaire soumis et valide
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -37,6 +45,7 @@ final class CreationdecompteController extends AbstractController
 
             // 6. Hashage du mot de passe
             $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
+            dump($plainPassword);
             $user->setPassword($hashedPassword);
 
             // 7. Persister et flush en base
@@ -45,6 +54,7 @@ final class CreationdecompteController extends AbstractController
 
             // 8. Rediriger ou afficher message
             return $this->redirectToRoute('moncompte');
+            
         }
 
         // 9. Affichage du formulaire

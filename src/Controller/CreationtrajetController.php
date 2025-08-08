@@ -8,18 +8,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Form\CreationtrajetType;
 use App\Entity\Covoit;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
 final class CreationtrajetController extends AbstractController
 {
     #[Route('/creationtrajet', name: 'creationtrajet')]
-    public function index(Request $request): Response
+    #[IsGranted("ROLE_USER")]
+    public function index(Request $request,EntityManagerInterface $em): Response
     {
-    $covoit = new Covoit();
-    $userCars = $this->getUser()->getCars();
 
-    $form = $this->createForm(creationType::class, $covoit,[
+    $covoit = new Covoit();
+    $user = $this->getUser();
+
+if(!($user instanceof User)) {
+    throw new \Exception('User is not instanceof ' . User::class);
+} 
+    $userCars = $user->getCars(); 
+    $form = $this->createForm(CreationtrajetType::class, $covoit,[
             'user_cars' => $userCars,
         ]);
     $form->handleRequest($request);

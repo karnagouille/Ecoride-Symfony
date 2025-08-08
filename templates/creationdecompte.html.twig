@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Covoiturage{% endblock %}
-
-{% block body %}
+{% block title %}creation de compte{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -11,11 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="{{ asset('script/main.js') }}" defer></script>
 {% endblock %}
+
+{% block body %}
     <header>
         <nav class="container titleshadow">
             <div><a href="{{ path('index') }}" class="decoration navlink">Accueil</a></div>
             <div><a href="{{ path('covoiturage') }}" class="decoration navlink">Covoiturage</a></div>
-            <div><a href="#" class="decoration navlink">Contact</a></div>
+            <div><a href="" class="decoration navlink">Contact</a></div>
             <div><a href="{{ path('moncompte') }}" class="decoration navlink">Mon compte</a></div>
             <div><a href="{{ path('connexion') }}" class="decoration navlink">Connexion</a></div>
             <div><a href="{{ path('deconnexion') }}" class="decoration navlink">Deconnexion</a></div>
@@ -25,39 +25,39 @@
         <p><strong>CREATION DE COMPTE</strong></p>
     </div>
     
+{{ form_errors(form) }}
 
+{{ form_start(form, {'method': 'POST'}) }}
 
-{{ form_start(form) }}
-
-<div action="" class="accountcreation">
+<div class="accountcreation">
             <div class="accountext">
-                <div><label for="" name = "pseudo">Pseudo :</label></div>
+                <div><label >Pseudo :</label></div>
                 <div>{{ form_row(form.pseudo) }}</div>
             </div>
 
             <div class="accountext">
-                <div><label for="" name = "name">Nom :</label></div>
+                <div><label >Nom :</label></div>
                 <div>{{ form_row(form.name) }}</div>
             </div>
 
             <div class="accountext">
-                <div><label for="" name = "prenom">Prénom :</label></div>
+                <div><label >Prénom :</label></div>
                 <div>{{ form_row(form.surname) }}</div>
             </div>
 
             <div class="accountext">
-                <div><label for="" name = "mail">Adresse-mail :</label></div>
+                <div><label >Adresse-mail :</label></div>
                 <div>{{ form_row(form.mail) }}</div>
             </div>
             
             <div class="accountext">
-                <div><label for="" name = "plainpassword">Mot-de-passe :</label></div>
-                <div>{{ form_row(form.plainpassword) }}</div>
+                <div><label >Mot-de-passe :</label></div>
+                <div>{{ form_row(form.plainPassword) }}</div>
             </div>
-        </div>
-
 <div class="buttonaccounts">
     <button type="submit" class="buttonaccount">Créer un compte</button>
 </div>
+        </div>
+
 {{ form_end(form) }}
 {% endblock %}
